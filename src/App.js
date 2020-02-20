@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./index.css";
 import todosList from "./todos.json";
-import { BrowserRouter } from "react-router-dom";
+//import { BrowserRouter } from "react-router-dom";
 import { Route, NavLink } from "react-router-dom";
-
+import TodoList from './TodoList'
+//import TodoItem from './TodoItem'
 class App extends Component {
   state = {
     todos: todosList
@@ -115,45 +116,7 @@ class App extends Component {
   }
 }
 //this.props.handleToggleComplete
-class TodoItem extends Component {
-  render() {
-    return (
-      <li className={this.props.completed ? "completed" : ""}>
-        <div className='view'>
-          <input
-            className='toggle'
-            type='checkbox'
-            checked={this.props.completed}
-            onChange={this.props.handleToggleComplete}
-          />
-          <label>{this.props.title}</label>
-          <button className='destroy' />
-        </div>
-      </li>
-    );
-  }
-}
 
-class TodoList extends Component {
-  render() {
-    return (
-      <section className='main'>
-        <ul className='todo-list'>
-          {this.props.todos.map(todo => (
-            <TodoItem
-              key={todo.id}
-              title={todo.title}
-              completed={todo.completed}
-              // id = {todo.id}
-              handleToggleComplete={event =>
-                this.props.handleToggleComplete(event, todo.id)
-              }
-            />
-          ))}
-        </ul>
-      </section>
-    );
-  }
-}
+//<TodoList />
 
 export default App;
